@@ -1,0 +1,47 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 5px;
+}
+#container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+#controller-container {
+  height: 10%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+#board-container {
+  height: 80%;
+  margin-bottom: 4%;
+  padding: 0;
+}
+#run-container {
+  height: 10%;
+  padding: 0;
+  text-align: center;
+}
+#run, #download {
+  text-decoration: none;
+  border-style: none;
+  font-size: 4vh;
+  width: 60%;
+  background: #F4A460;
+  color: #FFF;
+}
+#reload {
+  text-decoration: none;
+  font-size: 2vh;
+  margin-top: 10%;
+}
+#top-img {
+  width: 90%;
+  margin-top: 50%;
+  margin-bottom: 10%;
+}
