@@ -76,7 +76,7 @@ async function generate (drawing, callback) {
         // draw resized drawing
         p.draw(points[i]);
         // overlay trimed image
-        const img = await loadImage('/static/images/mov'+('000'+i).slice(-3)+'.png');
+        const img = await loadImage('static/images/mov'+('000'+i).slice(-3)+'.png');
         context.drawImage(img, 0, 0);
         console.log(encoder.addFrame(context));
     }
@@ -128,7 +128,7 @@ async function run () {
         container.removeChild(container.firstChild);
     }
 
-    const img = await loadImage('/static/images/loading.svg');
+    const img = await loadImage('static/images/loading.svg');
     img.style.width = "30%";
     img.style.marginTop = "50%";
     img.style.marginBottom = "10%";
