@@ -1,8 +1,8 @@
 function loadImage (src) {
-    const img = new Image();
-    img.src = src;
+    const image = new Image();
+    image.src = src;
     return new Promise(resolve => {
-        img.onload = () => resolve(img);
+        image.onload = () => resolve(image);
     });
 }
 
@@ -67,7 +67,7 @@ async function generate (drawing, callback) {
     ];
     let p = new Perspective(context, drawing);
 
-    var encoder = new GIFEncoder();
+    let encoder = new GIFEncoder();
     encoder.setRepeat(0);
     encoder.setDelay(83);
     encoder.start();
@@ -76,15 +76,18 @@ async function generate (drawing, callback) {
         // draw resized drawing
         p.draw(points[i]);
         // overlay trimed image
-        const img = await loadImage('static/images/mov'+('000'+i).slice(-3)+'.png');
-        context.drawImage(img, 0, 0);
+        const image = await loadImage('static/images/mov'+('000'+i).slice(-3)+'.png');
+        context.drawImage(image, 0, 0);
         console.log(encoder.addFrame(context));
+
+        let progress = document.getElementById('progress');
+        if (progress) progress.innerText = '生成中... \n'+i+'/'+38;
     }
 
     encoder.finish();
 
-    const img = await loadImage('data:image/gif;base64,'+encode64(encoder.stream().getData()));
-    callback(img);
+    const image = await loadImage('data:image/gif;base64,'+encode64(encoder.stream().getData()));
+    callback(image, encoder);
 }
 
 async function run () {
@@ -95,22 +98,13 @@ async function run () {
     canvas = await resizeCanvas(canvas, 81, 116);
     const drawing = await loadImage(canvas.toDataURL());
 
-    generate(drawing, (img) => {
+    generate(drawing, (image, encoder) => {
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
-        img.style.width = "90%";
-        img.style.marginTop = "50%";
-        img.style.marginBottom = "10%";
-
-        let download = document.createElement('a');
-        download.href = img.src;
-        download.download = "heiseidraw.gif";
-        download.innerText = "ダウンロード";
-        download.id = "download";
-
-        let wrapper = document.createElement('div');
-        wrapper.appendChild(download);
+        image.style.width = "100%";
+        image.style.marginTop = "50%";
+        image.style.marginBottom = "10%";
 
         let reload = document.createElement('button');
         reload.innerText = "もう一度";
@@ -119,8 +113,7 @@ async function run () {
             location.reload();
         });
 
-        container.appendChild(img);
-        container.appendChild(wrapper);
+        container.appendChild(image);
         container.appendChild(reload);
     });
 
@@ -128,17 +121,18 @@ async function run () {
         container.removeChild(container.firstChild);
     }
 
-    const img = await loadImage('static/images/loading.svg');
-    img.style.width = "30%";
-    img.style.marginTop = "50%";
-    img.style.marginBottom = "10%";
+    let image = await loadImage('static/images/loading.svg');
+    image.style.width = "30%";
+    image.style.marginTop = "50%";
+    image.style.marginBottom = "10%";
 
-    const text = document.createElement("p");
-    text.innerText = '生成中...';
-    text.style.fontSize = '4vh';
+    let progress = document.createElement("p");
+    progress.innerText = '生成中...';
+    progress.style.fontSize = '4vh';
+    progress.id = 'progress';
 
-    container.appendChild(img);
-    container.appendChild(text);
+    container.appendChild(image);
+    container.appendChild(progress);
 }
 
 document.getElementById('run').addEventListener('click', run);
