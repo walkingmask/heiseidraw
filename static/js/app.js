@@ -65,7 +65,8 @@ async function generate (drawing, callback) {
         [[50,81],[139,82],[138,200],[51,199]],
         [[50,81],[139,82],[138,200],[51,199]], // 39
     ];
-    let p = new Perspective(context, drawing);
+    let p1 = new Perspective(context, makeWhiteRect(drawing));
+    let p2 = new Perspective(context, drawing);
 
     let encoder = new GIFEncoder();
     encoder.setRepeat(0);
@@ -74,7 +75,8 @@ async function generate (drawing, callback) {
 
     for (let i = 0; i < 39; i++) {
         // draw resized drawing
-        p.draw(points[i]);
+        p1.draw(points[i]);
+        p2.draw(points[i]);
         // overlay trimed image
         const image = await loadImage('static/images/mov'+('000'+i).slice(-3)+'.png');
         context.drawImage(image, 0, 0);
@@ -88,6 +90,16 @@ async function generate (drawing, callback) {
 
     const image = await loadImage('data:image/gif;base64,'+encode64(encoder.stream().getData()));
     callback(image, encoder);
+}
+
+function makeWhiteRect(image) {
+    const canvas = document.createElement("canvas");
+    canvas.width = image.width;
+    canvas.height = image.height;
+    const context = canvas.getContext('2d');
+    context.fillStyle = 'white';
+    context.fillRect(0, 0, image.width, image.height);
+    return canvas;
 }
 
 async function run () {
