@@ -24,6 +24,7 @@ var board = new DrawingBoard.Board('board', {
     background: '#e7e7e7',
     size: 10,
     enlargeYourContainer: true,
+    droppable: true,
 });
 
 (function () {
