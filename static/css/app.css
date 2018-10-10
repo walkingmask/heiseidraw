@@ -10,6 +10,8 @@ html, body {
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  height: auto;
+  margin-bottom: 30px;
 }
 #controller-container {
   width: 100%;
