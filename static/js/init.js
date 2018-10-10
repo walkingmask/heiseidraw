@@ -6,7 +6,7 @@
     const board = $('#board');
 
     if (!window.matchMedia || window.matchMedia('(max-width:480px)').matches) {
-        // 画面幅 480px 以下 (スマホ) の場合は可変幅
+        // Flexible width on Smart phone (0px <= width <= 480px)
         if (base === width) {
             board.width(width);
             board.height(width * (55/40));
@@ -15,10 +15,11 @@
             board.width(height * (40/55));
             board.height(height);
         }
-    } else {
-        // 画面幅 480px 以上 (タブレット、PC) の場合は固定幅
-        // (画像をドラッグアンドドロップで貼り付けた際にキャンバスが可変だと
-        // 画像の高さ・幅の調整が面倒になるため)
+    }
+    else {
+        // Fixed width on Tablet, PC (480px < width)
+        // (for drag-n-drop image feature, flexible width makes it harder to
+        // adjust image width & height)
         board.width(480);
         board.height(640);
     }
