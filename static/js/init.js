@@ -5,7 +5,7 @@
     const base = (width * (55/40) > height)? height : base;
     const board = $('#board');
 
-    if (window.matchMedia('(max-width:480px)').matches) {
+    if (!window.matchMedia || window.matchMedia('(max-width:480px)').matches) {
         // 画面幅 480px 以下 (スマホ) の場合は可変幅
         if (base === width) {
             board.width(width);
