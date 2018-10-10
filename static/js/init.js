@@ -40,6 +40,7 @@ var board = new DrawingBoard.Board('board', {
     const width = $('.drawing-board-canvas-wrapper').width() + 2; 
 
     $('#container').width(width);
+    $('#container').height('auto');
     $('#controller-container').width(width);
     $('#board-container').width(width).height($('.drawing-board-canvas-wrapper').height() + 2);
     $('#run-container').width(width);
