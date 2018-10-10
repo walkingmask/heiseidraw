@@ -3,15 +3,25 @@
     const width = container.width();
     const height = container.height();
     const base = (width * (55/40) > height)? height : base;
+    const board = $('#board');
 
-    let board = $('#board');
-    if (base === width) {
-        board.width(width);
-        board.height(width * (55/40));
+    if (!window.matchMedia || window.matchMedia('(max-width:480px)').matches) {
+        // Flexible width on Smart phone (0px <= width <= 480px)
+        if (base === width) {
+            board.width(width);
+            board.height(width * (55/40));
+        }
+        else {
+            board.width(height * (40/55));
+            board.height(height);
+        }
     }
     else {
-        board.width(height * (40/55));
-        board.height(height);
+        // Fixed width on Tablet, PC (480px < width)
+        // (for drag-n-drop image feature, flexible width makes it harder to
+        // adjust image width & height)
+        board.width(480);
+        board.height(640);
     }
 })();
 
@@ -31,6 +41,7 @@ var board = new DrawingBoard.Board('board', {
     const width = $('.drawing-board-canvas-wrapper').width() + 2; 
 
     $('#container').width(width);
+    $('#container').height('auto');
     $('#controller-container').width(width);
     $('#board-container').width(width).height($('.drawing-board-canvas-wrapper').height() + 2);
     $('#run-container').width(width);
