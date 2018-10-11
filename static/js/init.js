@@ -23,6 +23,9 @@
         board.width(480);
         board.height(640);
     }
+
+    $('#dragging-overlay').width(board.width());
+    $('#dragging-overlay').height(board.height());
 })();
 
 var board = new DrawingBoard.Board('board', {
@@ -47,6 +50,7 @@ var board = new DrawingBoard.Board('board', {
     $('#run-container').width(width);
 
     $('#board').height($('#board-container').height());
+    $('#dragging-overlay').height($('#board').height());
 
     $('.drawing-board-controls').appendTo('#controller-container').removeAttr('data-align');
 

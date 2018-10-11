@@ -18,12 +18,35 @@ html, body {
   padding: 0;
   text-align: center;
 }
+#dragging-overlay:not(.activate) {
+  display: none;
+}
+#dragging-overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 2em;
+  color: white;
+  width: 480px;
+  height: 642px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  /* z-index で手前に持ってきているためこれがないと drop した時のイベントを受け取ってしまう
+   * (#board に渡したい)
+   */
+  pointer-events: none;
+}
 #board-container {
+  position: relative;
   width: 100%;
   height: 70%;
   margin-bottom: 5%;
   padding: 0;
   text-align: center;
+}
+#board {
+  z-index: 1;
 }
 #run-container {
   width: 100%;
