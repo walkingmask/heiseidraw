@@ -168,7 +168,7 @@ async function run () {
     container.appendChild(progress);
 }
 
-function registerDraggingMsg() {
+function addDraggingOverlayHandler() {
     const canvas = document.getElementsByTagName('canvas')[0];
     canvas.addEventListener('dragover', (e) => {
         e.stopPropagation();
@@ -187,4 +187,4 @@ function registerDraggingMsg() {
 
 document.getElementById('run').addEventListener('click', run);
 $(addImageChooserHandler);
-$(registerDraggingMsg);
+$(addDraggingOverlayHandler);
