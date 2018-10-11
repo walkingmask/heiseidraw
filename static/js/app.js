@@ -102,27 +102,6 @@ function makeWhiteRect(image) {
     return canvas;
 }
 
-function addImageChooserHandler() {
-  $('#image-chooser')
-    .on('click', function () {
-      $('#image-chooser-input').click();
-    });
-  $('#image-chooser-input')
-    .on('change', function () {
-      if (!this.files || this.files.length === 0 ||
-        this.files[0].type.indexOf('image/') !== 0) {
-        return;
-      }
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        board.setImg(e.target.result, {
-          callback: () => board.saveHistory()
-        });
-      };
-      reader.readAsDataURL(this.files[0]);
-    });
-}
-
 async function run () {
     let container = document.getElementById('container');
     let canvas = document.getElementsByTagName('canvas')[0];
@@ -168,7 +147,7 @@ async function run () {
     container.appendChild(progress);
 }
 
-function addDraggingOverlayHandler() {
+function registerDraggingMsg() {
     const canvas = document.getElementsByTagName('canvas')[0];
     canvas.addEventListener('dragover', (e) => {
         e.stopPropagation();
@@ -186,5 +165,4 @@ function addDraggingOverlayHandler() {
 }
 
 document.getElementById('run').addEventListener('click', run);
-$(addImageChooserHandler);
-$(addDraggingOverlayHandler);
+$(registerDraggingMsg);
