@@ -153,7 +153,7 @@ function registerDraggingMsg() {
         e.stopPropagation();
         e.preventDefault();
         $('#dragging-overlay').html(
-            'キャンバスサイズ<br>高さ ' + $(canvas).height() + 'px<br>×<br>幅 ' + $(canvas).height() + 'px'
+            'キャンバスサイズ<br>高さ ' + $(canvas).height() + 'px<br>×<br>幅 ' + $(canvas).width() + 'px'
         );
         $('#dragging-overlay').addClass('activate');
     });
