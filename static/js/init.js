@@ -75,5 +75,4 @@ var board = new DrawingBoard.Board('board', {
     $('.drawing-board-control-navigation-back').width(base).height(base).css("fontSize","3vh");
     $('.drawing-board-control-navigation-forward').width(base).height(base).css("fontSize","3vh");
     $('.drawing-board-control-navigation-reset').width(base).height(base).css("fontSize","3vh");
-    $('#image-chooser').width(base).height(base);
 })();
