@@ -35,6 +35,7 @@ var board = new DrawingBoard.Board('board', {
     size: 10,
     enlargeYourContainer: true,
     droppable: true,
+    stretchImg: true,
 });
 
 (function () {
