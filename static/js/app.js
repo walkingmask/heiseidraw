@@ -168,5 +168,23 @@ async function run () {
     container.appendChild(progress);
 }
 
+function registerDraggingMsg() {
+    const canvas = document.getElementsByTagName('canvas')[0];
+    canvas.addEventListener('dragover', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#dragging-overlay').html(
+            'キャンバスサイズ<br>高さ ' + $(canvas).height() + 'px<br>×<br>幅 ' + $(canvas).height() + 'px'
+        );
+        $('#dragging-overlay').addClass('activate');
+    });
+    canvas.addEventListener('drop', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#dragging-overlay').removeClass('activate');
+    });
+}
+
 document.getElementById('run').addEventListener('click', run);
 $(addImageChooserHandler);
+$(registerDraggingMsg);
