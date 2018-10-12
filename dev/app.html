@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>平成ドロー生成</title>
+  <meta name="description" content="平成という時代の終わりに。">
+  <meta name="keywords" content="平成ドロー,平成最後の夏,gif,gif生成">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="static/css/bootstrap-reboot.css"></link>
+  <link rel="stylesheet" href="static/css/drawingboard.min.css"></link>
+  <link rel="stylesheet" href="static/css/app.css"></link>
+  <link rel="shortcut icon" href="static/images/favicon.png">
+</head>
+
+<body>
+  <div id="container">
+    <div id="controller-container">
+    </div>
+    <div id="board-container">
+      <div id="dragging-overlay"></div>
+      <div id="board" ></div>
+    </div>
+    <div id="run-container">
+      <button id="run">生成する</button>
+    </div>
+  </div>
+  <div id="version">
+    <p>version 1.0.5</p>
+  </div>
+
+  <script src="static/js/jquery-1.10.1.min.js"></script>
+  <script src="static/js/drawingboard.min.js"></script>
+  <script src="static/js/init.js"></script>
+  <script src="static/js/perspective.min.js"></script>
+  <script src="static/js/b64.js"></script>
+  <script src="static/js/LZWEncoder.js"></script>
+  <script src="static/js/NeuQuant.js"></script>
+  <script src="static/js/GIFEncoder.js"></script>
+  <script src="static/js/app.js"></script>
+</body>
+
+</html>
