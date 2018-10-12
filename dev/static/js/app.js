@@ -102,6 +102,27 @@ function makeWhiteRect(image) {
     return canvas;
 }
 
+function addImageChooserHandler() {
+  $('#image-chooser')
+    .on('click', function () {
+      $('#image-chooser-input').click();
+    });
+  $('#image-chooser-input')
+    .on('change', function () {
+      if (!this.files || this.files.length === 0 ||
+        this.files[0].type.indexOf('image/') !== 0) {
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        board.setImg(e.target.result, {
+          callback: () => board.saveHistory()
+        });
+      };
+      reader.readAsDataURL(this.files[0]);
+    });
+}
+
 async function run () {
     let container = document.getElementById('container');
     let canvas = document.getElementsByTagName('canvas')[0];
@@ -147,13 +168,13 @@ async function run () {
     container.appendChild(progress);
 }
 
-function registerDraggingMsg() {
+function addDraggingOverlayHandler() {
     const canvas = document.getElementsByTagName('canvas')[0];
     canvas.addEventListener('dragover', (e) => {
         e.stopPropagation();
         e.preventDefault();
         $('#dragging-overlay').html(
-            'キャンバスサイズ<br>高さ ' + $(canvas).height() + 'px<br>×<br>幅 ' + $(canvas).width() + 'px'
+            'キャンバスサイズ<br>高さ ' + $(canvas).height() + 'px<br>×<br>幅 ' + $(canvas).height() + 'px'
         );
         $('#dragging-overlay').addClass('activate');
     });
@@ -165,4 +186,5 @@ function registerDraggingMsg() {
 }
 
 document.getElementById('run').addEventListener('click', run);
-$(registerDraggingMsg);
+$(addImageChooserHandler);
+$(addDraggingOverlayHandler);
