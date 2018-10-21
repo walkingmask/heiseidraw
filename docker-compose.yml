@@ -2,9 +2,10 @@ version: "2"
 
 services:
 
-  heiseidraw:
+  heiseidraw.walkingmask.tk:
     build: ./
-    container_name: heiseidraw
+    image: heiseidraw.walkingmask.tk:latest
+    container_name: heiseidraw.walkingmask.tk
     restart: always
     environment:
       VIRTUAL_HOST: heiseidraw.walkingmask.tk
