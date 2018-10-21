@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+
+  heiseidraw:
+    build: ./
+    container_name: heiseidraw
+    restart: always
+    environment:
+      VIRTUAL_HOST: heiseidraw.dev.localhost
+    volumes:
+       - ./app:/app
+
+networks:
+  default:
+    external:
+      name: shared
