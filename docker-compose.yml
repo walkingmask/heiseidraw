@@ -11,8 +11,9 @@ services:
       VIRTUAL_HOST: heiseidraw.walkingmask.tk
       LETSENCRYPT_HOST: heiseidraw.walkingmask.tk
       LETSENCRYPT_EMAIL: walkingmask@gmail.com
-    volumes:
-       - ./app:/app
+    expose:
+      - 80
+    entrypoint: python /app/app.py
 
 networks:
   default:
