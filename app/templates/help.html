@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>平成ドロー</title>
+  <meta name="description" content="平成という時代の終わりに。">
+  <meta name="keywords" content="平成ドロー,平成最後の夏,gif,gif生成">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/lib/skyblue.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+</head>
+
+<body>
+  <div id="header" class="container bg-app text-center">
+    <span>平成ドロー version {{ version }}</span>
+  </div>
+
+  <div class="container">
+    <div class="row margin-top-20">
+      <div class="col">
+        <h4>平成ドローとは</h4>
+        <p>XXドローとは、元号「平成」を自分の好きな絵に加工したGIFを生成できるジョークツールです。</a>。</p>
+      </div>
+    </div>
+    <div class="row margin-top-10">
+      <div class="col">
+        <h4>使用方法</h4>
+        <ul>
+          <li>キャンバス上のコントロールパネルは左から順に
+            <ul>
+              <li>カラーパレット：<strong>筆の色</strong>の変更</li>
+              <li>ドロップダウン：<strong>筆のサイズ</strong>の変更</li>
+              <li>戻る：前の状態に戻る</li>
+              <li>進む：次の状態に進む</li>
+              <li>クリア：<strong>キャンバスをクリア</strong></li>
+            </ul>
+          </li>
+          <li>PC版ではキャンバスにドラッグ&ドロップで<strong>画像を貼り付け</strong>られます (アスペクト比が横:縦=8:11の画像を推奨、Special thanks <a href="https://github.com/tyru">tyru</a> さん)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row margin-top-10">
+      <div class="col">
+        <h4>注意事項</h4>
+        <ul>
+          <li><strong>公序良俗に反しない範囲でお楽しみください</strong></li>
+          <li><strong>このツールの利用・生成結果の使用は自己責任で行ってください</strong></li>
+          <li>生成結果について当ツール作者は一切の責任を負いません</li>
+          <li>不具合、問題の報告等は <a href="https://twitter.com/walkingmask">twitter</a> または <a href="https://github.com/walkingmask/heiseidraw/issues">GitHub issues</a> までお願いします</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row margin-top-10">
+      <div class="col">
+        お問い合わせは <a href="https://twitter.com/walkingmask">twitter</a> までお願いします。
+      </div>
+    </div>
+    <div class="row margin-top-20 margin-bottom-30">
+      <div class="col">
+        <button id="back" onclick="window.history.back();">戻る</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -7,15 +7,38 @@
   <meta name="description" content="平成という時代の終わりに。">
   <meta name="keywords" content="平成ドロー,平成最後の夏,gif,gif生成">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="static/css/bootstrap-reboot.css"></link>
-  <link rel="stylesheet" href="static/css/app.css"></link>
-  <link rel="shortcut icon" href="static/images/favicon.png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/lib/skyblue.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
 </head>
 
 <body>
-  <div id="container">
-    <img id="top-img" src="static/images/top.gif">
-    <button id="run" onclick="window.location.href='/app'">はじめる</button>
+  <div id="header" class="container text-center bg-app padding-y-5">
+    <h1 id="title" class="margin-bottom-0">平成ドロー</h1>
+    <div>
+      <span>vesion {{ version }}</span>
+    </div>
+  </div>
+
+  <div class="container text-center margin-y-40">
+    <div class="row">
+      <div class="col">
+        <img id="top-img" src="{{ url_for('static', filename='images/top.gif') }}">
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <a id="start" class="btn" href="/app">はじめる</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a href="/help">平成ドローについて</a>
+      </div>
+    </div>
   </div>
 </body>
 

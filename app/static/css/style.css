@@ -1,0 +1,84 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+.bg-app {
+  background-color: #fccc04;
+  color: #f5fad2;
+}
+#drawing-container {
+  width: 100%;
+  height: 85%;
+}
+#drawing-container-inner {
+  width: 100%;
+  height: 100%;
+}
+#drawing-board {
+  width: 100%;
+  height: 100%;
+}
+.drawing-board-controls {
+  display: block;
+  border-spacing: 5px;
+  position: static;
+}
+.drawing-board-canvas-wrapper {
+  border: none;
+}
+.drawing-board-control-colors-rainbows {
+  border: 1px;
+  padding: 0;
+}
+.drawing-board-control-colors-rainbow {
+  margin-top: 2px;
+}
+.drawing-board-control-colors-picker:hover {
+  border: none;
+}
+.drawing-board-control-colors-picker {
+  margin-right: 2px;
+}
+.drawing-board-control-colors-picker[data-color="rgba(255, 255, 255, 1)"] {
+  border: none;
+}
+.drawing-board-control-size > .drawing-board-control-inner {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+#help-link {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #eee;
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 3px -2px #121212, inset 0 2px 5px 0 rgba(255,255,255,.3);
+  -webkit-box-shadow: 0 1px 3px -2px #121212, inset 0 2px 5px 0 rgba(255,255,255,.3);
+  font-weight: 700;
+  font-size: 3vh;
+  cursor: pointer;
+}
+#back, #run, #reload {
+  cursor: pointer;
+}
+progress {
+  width: 60%;
+  border: 2px solid #ccc;
+  background: #ccc;
+  color: #fccc04;
+}
+progress::-moz-progress-value {
+  background: #fccc04;
+}
+progress::-moz-progress-bar {
+  background: #ccc;
+}
+progress::-webkit-progress-value {
+  background: #fccc04;
+}
+progress::-webkit-progress-bar {
+  background: #ccc;
+}
