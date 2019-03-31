@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
 
-version = '1.2.0'
+version = '2.0.0'
 app = Flask(__name__)
 
 
