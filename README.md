@@ -16,15 +16,16 @@ Inspired by https://twitter.com/trumpdraws
 Init.
 
 ```
-git clone https://github.com/walkingmask/nonushuffler.walkingmask.tk.git
-cd nonushuffler.walkingmask.tk
+git clone https://github.com/walkingmask/heiseidraw.walkingmask.tk.git
+cd heiseidraw.walkingmask.tk
+git checkout fastapi
 docker-compose up -d
 ```
 
 Update.
 
 ```
-cd nonushuffler.walkingmask.tk
+cd heiseidraw.walkingmask.tk
 git pull
 docker-compose build
 docker-compose restart
