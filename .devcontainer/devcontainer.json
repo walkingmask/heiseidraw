@@ -1,0 +1,14 @@
+{
+	"name": "heiseidraw.walkingmask.tk Local developement container",
+	"dockerComposeFile": "../docker-compose.local.yml",
+	"service": "heiseidraw.walkingmask.tk.localhost",
+	"workspaceFolder": "/workspace",
+	"settings": {
+		"terminal.integrated.automationShell.linux": "/bin/bash",
+		"python.pythonPath": "/usr/local/bin/python"
+	},
+	"extensions": [
+		"ms-python.python",
+		"ms-python.vscode-pylance"
+	]
+}

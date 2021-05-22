@@ -1,9 +1,10 @@
-FROM python:3.6-alpine
+FROM python:3.9.5-buster as builder
 
-LABEL maintainer="walkingmask <walkingmask.jp@gmail.com>"
-LABEL description="heiseidraw image"
+ADD requirements.txt /tmp/requirements.txt
+RUN pip install -U pip
+RUN pip install -r tmp/requirements.txt
 
-ADD app /app
-WORKDIR /app
+FROM python:3.9.4-slim-buster
 
-RUN pip install --no-cache-dir -r requirements.txt
+COPY --from=builder /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
+COPY --from=builder /usr/local/bin/uvicorn /usr/local/bin/uvicorn

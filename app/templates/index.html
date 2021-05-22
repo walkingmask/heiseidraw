@@ -7,9 +7,9 @@
   <meta name="description" content="平成という時代の終わりに。">
   <meta name="keywords" content="平成ドロー,平成最後の夏,gif,gif生成">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/lib/skyblue.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <link rel="stylesheet" href="/static/css/lib/skyblue.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="shortcut icon" href="/static/images/favicon.png">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
   <div class="container text-center margin-y-40">
     <div class="row">
       <div class="col">
-        <img id="top-img" src="{{ url_for('static', filename='images/top.gif') }}">
+        <img id="top-img" src="/static/images/top.gif">
       </div>
     </div>
   </div>
@@ -37,6 +37,14 @@
     <div class="row">
       <div class="col">
         <a href="/help">平成ドローについて</a>
+      </div>
+    </div>
+    <div class="row">
+      <p></p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a href="/old_app">前のバージョンはこちら</a>
       </div>
     </div>
   </div>

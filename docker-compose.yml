@@ -1,21 +1,34 @@
-version: "2"
+version: "3.8"
 
 services:
 
   heiseidraw.walkingmask.tk:
-    build: ./
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: heiseidraw.walkingmask.tk:latest
     container_name: heiseidraw.walkingmask.tk
     restart: always
     environment:
       VIRTUAL_HOST: heiseidraw.walkingmask.tk
+      VIRTUAL_PORT: 8080
       LETSENCRYPT_HOST: heiseidraw.walkingmask.tk
       LETSENCRYPT_EMAIL: walkingmask@gmail.com
     expose:
-      - 80
-    entrypoint: python /app/app.py
+      - 8080
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    init: true
+    command: uvicorn main:app --no-access-log --host 0.0.0.0 --port 8080
+    logging:
+      driver: fluentd
+      options:
+        cache-disabled: "true"
+        tag: "docker.service"
+        fluentd-async-connect: "true"
 
 networks:
   default:
     external:
-      name: shared
+      name: nginx-proxy-shared

@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+
+  heiseidraw.walkingmask.tk.localhost:
+    build:
+      context: .
+      dockerfile: Dockerfile-local
+    image: heiseidraw.walkingmask.tk.localhost:latest
+    container_name: heiseidraw.walkingmask.tk.localhost
+    environment:
+      VIRTUAL_HOST: heiseidraw.walkingmask.tk.localhost
+      VIRTUAL_PORT: 8080
+    expose:
+      - 8080
+    volumes:
+      - .:/workspace
+    working_dir: /workspace/app
+    init: true
+    command: uvicorn main:app --no-access-log --host 0.0.0.0 --port 8080 --reload
+    logging:
+      driver: fluentd
+      options:
+        cache-disabled: "true"
+        tag: "docker.service"
+        fluentd-async-connect: "true"
+
+networks:
+  default:
+    external:
+      name: nginx-proxy-shared

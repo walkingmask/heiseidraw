@@ -7,10 +7,10 @@
   <meta name="description" content="平成という時代の終わりに。">
   <meta name="keywords" content="平成ドロー,平成最後の夏,gif,gif生成">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/lib/skyblue.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/lib/drawingboard.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <link rel="stylesheet" href="/static/css/lib/skyblue.min.css">
+  <link rel="stylesheet" href="/static/css/lib/drawingboard.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="shortcut icon" href="/static/images/favicon.png">
 </head>
 
 <body>
@@ -44,16 +44,15 @@
     </div>
   
   <script>
-    var _imagePath = "{{ url_for('static', filename='croped') }}";
-    var _workerScript = "{{ url_for('static', filename='js/lib/gifjs/gif.worker.js') }}";
+    var _imagePath = "/static/cropped";
+    var _workerScript = "/static/js/lib/gifjs/gif.worker.js";
   </script>
-  <script src="{{ url_for('static', filename='js/lib/jquery-1.10.1.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/lib/drawingboard.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/init.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/lib/perspective.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/lib/gifjs/gif.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/points.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="/static/js/lib/jquery-1.10.1.min.js"></script>
+  <script src="/static/js/lib/drawingboard.min.js"></script>
+  <script src="/static/js/init.js"></script>
+  <script src="/static/js/lib/perspective.min.js"></script>
+  <script src="/static/js/lib/gifjs/gif.js"></script>
+  <script src="/static/js/app.js"></script>
 </body>
 
 </html>

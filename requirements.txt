@@ -1,0 +1,4 @@
+aiofiles
+fastapi
+jinja2
+uvicorn[default]
