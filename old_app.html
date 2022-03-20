@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>平成ドロー</title>
+  <meta name="description" content="平成という時代の終わりに。">
+  <meta name="keywords" content="平成ドロー,平成最後の夏,gif,gif生成">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/static/css/lib/skyblue.min.css">
+  <link rel="stylesheet" href="/static/css/lib/drawingboard.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="shortcut icon" href="/static/images/favicon.png">
+</head>
+
+<body>
+  <div id="header" class="container bg-app text-center">
+    <span>平成ドロー version 4.0</span>
+  </div>
+
+  <div id="drawing-container" class="container text-center padding-x-10 padding-y-10">
+    <div id="drawing-container-inner">
+      <div id="drawing-board"></div>
+    </div>
+    <button id="run" class="btn margin-top-10">生成する</button>
+  </div>
+
+  <div id="progress-container" class="container text-center padding-top-20 hide">
+    <p>生成中...</p>
+    <progress id="progress" max="100" value="0">0%</progress>
+  </div>
+  
+  <div id="result-container" class="container text-center padding-y-50 hide">
+    <div><img id="result-image"></div>
+    <button id="reload" class="btn margin-top-50 margin-bottom-30" onclick="window.location.reload();">もう一度</button>
+  </div>
+
+  <script>
+    var _imagePath = "/static/cropped";
+    var _workerScript = "/static/js/lib/gifjs/gif.worker.js";
+  </script>
+  <script src="/static/js/lib/jquery-1.10.1.min.js"></script>
+  <script src="/static/js/lib/drawingboard.min.js"></script>
+  <script src="/static/js/init.js"></script>
+  <script src="/static/js/lib/perspective.min.js"></script>
+  <script src="/static/js/lib/gifjs/gif.js"></script>
+  <script src="/static/js/points.js"></script>
+  <script src="/static/js/old_app.js"></script>
+</body>
+
+</html>
