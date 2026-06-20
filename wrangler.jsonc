@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "heiseidraw",
+  "compatibility_date": "2026-06-19",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "public"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "build": {
+    "watch_dir": "public/*",
+  },
+  "routes": [
+    {
+      "pattern": "heiseidraw.walkingmask.dev",
+      "custom_domain": true
+    }
+  ]
+}

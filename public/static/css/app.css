@@ -12,6 +12,21 @@ html, body {
   text-align: center;
   margin-bottom: 30px;
 }
+#buttons {
+  display: flex;
+}
+#image-chooser {
+  width: 48px;
+  height: 48px;
+  border: solid 1px;
+  padding: 1px;
+  cursor: pointer;
+}
+#image-chooser-input {
+  position: fixed;
+  left: -999px;
+  top: -999px;
+}
 #controller-container {
   width: 100%;
   margin-bottom: 5%;
@@ -53,7 +68,7 @@ html, body {
   padding: 0;
   text-align: center;
 }
-#run, #download {
+#run, #download, #reload {
   text-decoration: none;
   border-style: none;
   font-size: 4vh;
@@ -62,7 +77,6 @@ html, body {
   color: #FFF;
 }
 #reload {
-  text-decoration: none;
   font-size: 2vh;
   margin-top: 10%;
 }

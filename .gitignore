@@ -1,0 +1,13 @@
+.DS_Store
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
+
+node_modules
+package.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
